@@ -26,7 +26,7 @@ function SignIn() {
       // setError(false)
       // setLoading(true)
 
-      //The dispatich function is used to replace the error and loading function above because of react-redux toolkit
+      //The dispatch function is used to replace the error and loading function above because of react-redux toolkit
       dispatch(signInStart());
       const res = await fetch('/api/auth/sign-in', {
         method: 'POST',
@@ -89,4 +89,4 @@ function SignIn() {
   )
 }
 
-export default SignIn
+export default SignIn;
