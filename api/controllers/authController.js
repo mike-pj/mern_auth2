@@ -76,7 +76,7 @@ export const google = async (req, res, next) => {
       await newUser.save();
       const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
       const { password: generatedPassword2, ...rest } = newUser._doc;
-      const expiryDate = new Date(Date.now() + 3600000); // 1 hour
+      const expiryDate = new Date(Date.now() + 36000000); // 1 hour
 
       res
         .cookie("access_token", token, {
@@ -89,4 +89,9 @@ export const google = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+
+
+export const signout = ( req, res ) => {
+    res.clearCookie('access_token').status(200).json('Signout successfull');
 };
